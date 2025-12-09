@@ -1,0 +1,141 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --ff-base: "Raleway", system-ui, sans-serif;
+
+  --title-lg: 700 3rem var(--ff-base);
+  --title-md: 700 2.5rem var(--ff-base);
+  --title-sm: 700 2rem var(--ff-base);
+  --title-xs: 700 1rem var(--ff-base);
+  --subtitle: 500 2rem/2 var(--ff-base);
+  --body-lg: 1.25rem/1.4 var(--ff-base);
+  --body-md: 1rem/1.4 var(--ff-base);
+  --body-sm: 0.875rem/1.4 var(--ff-base);
+  --body-xs: 0.75rem/1.4 var(--ff-base);
+  --button: 700 0.875rem var(--ff-base);
+  --link: 500 0.875rem var(--ff-base);
+  --tag: 700 0.625rem var(--ff-base);
+
+  --pink-light: #c59dd2;
+  --pink-base: #9547a5;
+  --pink-dark: #7d298a;
+  --pink-low: #3f0f41;
+
+  --blue-light: #73b6d2;
+  --blue-base: #358bb9;
+  --blue-mid: #2374a4;
+  --blue-dark: #144a72;
+  --blue-low: #08233c;
+
+  --shape-stroke: #002347;
+  --shape-hover: #001933;
+  --shape-base: #000f1f;
+  --shape-background: #000506;
+
+  --text-title: #f8fbfb;
+  --text-body: #e2e7e9;
+  --text-label: #bac6c9;
+}
+
+.btn {
+  all: unset;
+  padding: 0 1.25rem;
+  height: 2.5rem;
+  width: fit-content;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.5rem;
+  color: var(--text-title);
+  font: var(--button);
+}
+
+.btn.btn-primary {
+  background-color: var(--pink-dark);
+
+  &:hover {
+    background-color: var(--pink-base);
+  }
+}
+
+.btn.btn-secondary {
+  background-color: var(--blue-dark);
+
+  &:hover {
+    background-color: var(--blue-mid);
+  }
+}
+
+.link {
+  font: var(--link);
+  color: var(--blue-light);
+
+  &:hover {
+    color: var(--text-body);
+  }
+}
+
+.social-link {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 999px;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    background-color: var(--shape-stroke);
+    inset: 0;
+    z-index: -1;
+    transform: scale(0);
+    transition: transform 300ms;
+  }
+
+  &:hover::before {
+    transform: scale(1);
+  }
+}
+
+.text-img {
+  width: 100%;
+  height: auto;
+  transition: transform 800ms;
+
+  &:hover {
+    transform: rotate(-11deg);
+  }
+}
+
+.card {
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 26rem;
+  background-color: var(--shape-base);
+  border: 1px solid var(--shape-stroke);
+  padding: 2rem 2rem 1.75rem;
+
+  &:hover {
+    background-color: var(--shape-hover);
+  }
+}
+
+.card .card-header,
+.card .card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
