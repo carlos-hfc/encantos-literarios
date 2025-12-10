@@ -253,3 +253,98 @@ body {
     transform: rotate(-4deg) scale(1.1);
   }
 }
+
+.kit {
+  position: relative;
+  text-align: center;
+  margin-block: 15rem;
+}
+
+.kit h2 {
+  color: var(--text-title);
+  font: var(--title-sm);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.kit h2::before,
+.kit h2::after {
+  content: "";
+  background-image: url(../assets/icons/star-purple.svg);
+  width: 2rem;
+  height: 2rem;
+  background-size: 2rem;
+}
+
+.kit p {
+  font: var(--body-md);
+  margin-block: 0.5rem 5.5rem;
+}
+
+.kit .kit-images {
+  position: relative;
+  padding-block: 134px 169px;
+}
+
+.kit .kit-images img.book {
+  width: min(467px, 100%);
+  height: auto;
+  z-index: 1;
+  position: relative;
+}
+
+.kit .kit-images img:not([src*="book.png"]) {
+  position: absolute;
+  z-index: -1;
+}
+
+.kit .kit-images img:nth-child(2) {
+  top: 70px;
+  left: 96px;
+}
+
+.kit .kit-images img:nth-child(3) {
+  left: 113px;
+  top: 455px;
+}
+
+.kit .kit-images img:nth-child(4) {
+  width: 222px;
+  transform: rotate(-8deg);
+  left: 170px;
+  bottom: 90px;
+}
+
+.kit .kit-images img:nth-child(5) {
+  width: 180px;
+  bottom: 313px;
+  right: 190px;
+  transform: rotate(12deg);
+  z-index: 0;
+}
+
+.kit .kit-images img:nth-child(6) {
+  width: 180px;
+  bottom: 209px;
+  right: 90px;
+  transform: rotate(22deg);
+}
+
+.kit .kit-images img:nth-child(7) {
+  bottom: 35px;
+  right: 147px;
+}
+
+.kit .kit-blur {
+  position: absolute;
+  background-color: var(--pink-low);
+  width: 100%;
+  height: 930px;
+  border-radius: 999px;
+  filter: blur(600px);
+  bottom: 0;
+  z-index: -2;
+}
