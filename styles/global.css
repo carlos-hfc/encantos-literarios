@@ -109,13 +109,9 @@
 }
 
 .text-img {
-  width: 100%;
+  width: min(5rem, 100%);
   height: auto;
   transition: transform 800ms;
-
-  &:hover {
-    transform: rotate(-11deg);
-  }
 }
 
 .card {
@@ -138,4 +134,122 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+}
+
+body {
+  background-color: var(--shape-background);
+  color: var(--text-body);
+  font-family: var(--ff-base);
+  background-image: url(../assets//icons/blur.svg);
+}
+
+.container {
+  width: min(1120px + 2rem, 100%);
+  margin-inline: auto;
+  padding-inline: 2rem;
+}
+
+.hero,
+.hero .container {
+  position: relative;
+}
+
+.hero {
+  min-height: 948px;
+}
+
+.hero header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  padding-block-start: 3.5rem;
+  z-index: 1;
+}
+
+.hero .hero-image {
+  background-image: url(../assets/images/hero-background.png);
+  display: flex;
+  justify-content: center;
+  min-height: inherit;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-block-end: 6rem;
+}
+
+.hero .hero-image-text {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  position: absolute;
+  top: 278px;
+  max-width: 656px;
+}
+
+.hero .hero-image-text h1 {
+  color: var(--text-title);
+  font: var(--title-lg);
+}
+
+.hero .hero-image-text p {
+  font: var(--body-lg);
+  max-width: 568px;
+}
+
+.hero .hero-section {
+  padding-block: 7rem 10rem;
+  margin-inline: auto;
+  max-width: 71rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.hero .hero-section p {
+  font: var(--subtitle);
+  text-align: center;
+}
+
+.hero .hero-section span {
+  color: var(--blue-light);
+  font-weight: 700;
+}
+
+.hero .hero-section img {
+  position: absolute;
+}
+
+.hero .hero-section img:nth-child(1) {
+  transform: rotate(20deg);
+  top: 0.5rem;
+
+  &:hover {
+    transform: rotate(31deg) scale(1.1);
+  }
+}
+
+.hero .hero-section img:nth-child(2) {
+  transform: rotate(99deg);
+  bottom: 71px;
+  left: 0;
+
+  &:hover {
+    transform: rotate(110deg) scale(1.1);
+  }
+}
+
+.hero .hero-section img:nth-child(3) {
+  transform: rotate(-14deg);
+  right: 0;
+  bottom: 76px;
+
+  &:hover {
+    transform: rotate(-4deg) scale(1.1);
+  }
 }
