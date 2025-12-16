@@ -39,6 +39,10 @@
   --text-title: #f8fbfb;
   --text-body: #e2e7e9;
   --text-label: #bac6c9;
+
+  --kit-animation-time: 400ms;
+
+  --pricing-transform-cards: 10px;
 }
 
 a {
@@ -292,6 +296,14 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   margin-block-end: 6rem;
+  animation: showHero 800ms 1s backwards;
+  transition: opacity 500ms;
+}
+
+@keyframes showHero {
+  from {
+    opacity: 0;
+  }
 }
 
 .hero .hero-image-text {
@@ -304,6 +316,8 @@ body {
   position: absolute;
   top: 278px;
   max-width: 656px;
+  animation: showHero 2s 1.8s backwards;
+  transition: opacity 500ms;
 }
 
 .hero .hero-image-text h1 {
@@ -323,6 +337,15 @@ body {
   position: relative;
   display: flex;
   justify-content: center;
+  animation: opacity-text linear backwards;
+  animation-timeline: view();
+  animation-range: 0 25%;
+}
+
+@keyframes opacity-text {
+  from {
+    opacity: 0;
+  }
 }
 
 .hero .hero-section p {
@@ -333,10 +356,28 @@ body {
 .hero .hero-section span {
   color: var(--blue-light);
   font-weight: 700;
+  animation: change-color backwards;
+  animation-timeline: view();
+  animation-range: 0 50%;
+}
+
+@keyframes change-color {
+  from {
+    color: currentColor;
+  }
 }
 
 .hero .hero-section img {
   position: absolute;
+  animation: show-images backwards;
+  animation-timeline: view();
+  animation-range: 0 50%;
+}
+
+@keyframes show-images {
+  from {
+    opacity: 0;
+  }
 }
 
 .hero .hero-section img:nth-child(1) {
@@ -401,6 +442,9 @@ body {
 .kit .kit-images {
   position: relative;
   padding-block: 134px 169px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .kit .kit-images img.book {
@@ -416,38 +460,72 @@ body {
 }
 
 .kit .kit-images img:nth-child(2) {
+  top: 160px;
+  left: 33%;
+  transition: all var(--kit-animation-time);
+}
+
+.kit .kit-images:hover img:nth-child(2) {
   top: 70px;
   left: 96px;
 }
 
 .kit .kit-images img:nth-child(3) {
-  left: 113px;
+  left: 33%;
   top: 455px;
+  transition: all var(--kit-animation-time);
+}
+
+.kit .kit-images:hover img:nth-child(3) {
+  left: 113px;
 }
 
 .kit .kit-images img:nth-child(4) {
   width: 222px;
-  transform: rotate(-8deg);
+  left: 31%;
+  bottom: 150px;
+  transition: all var(--kit-animation-time);
+}
+
+.kit .kit-images:hover img:nth-child(4) {
   left: 170px;
   bottom: 90px;
+  transform: rotate(-8deg);
 }
 
 .kit .kit-images img:nth-child(5) {
   width: 180px;
+  bottom: 30%;
+  right: 30%;
+  z-index: 0;
+  transition: all var(--kit-animation-time);
+}
+
+.kit .kit-images:hover img:nth-child(5) {
   bottom: 313px;
   right: 190px;
   transform: rotate(12deg);
-  z-index: 0;
 }
 
 .kit .kit-images img:nth-child(6) {
   width: 180px;
   bottom: 209px;
+  right: 30%;
+  transition: all var(--kit-animation-time);
+}
+
+.kit .kit-images:hover img:nth-child(6) {
   right: 90px;
   transform: rotate(22deg);
 }
 
 .kit .kit-images img:nth-child(7) {
+  bottom: 23%;
+  right: 30%;
+  transition: all var(--kit-animation-time);
+}
+
+.kit .kit-images:hover img:nth-child(7) {
   bottom: 35px;
   right: 147px;
 }
@@ -497,6 +575,10 @@ body {
   position: relative;
 }
 
+.pricing .card {
+  transition: transform 400ms;
+}
+
 .pricing .card:first-child,
 .pricing .card:last-child {
   position: absolute;
@@ -507,12 +589,26 @@ body {
   }
 }
 
-.pricing .card:first-child {
+.pricing:hover .card:not(:first-child, :last-child) {
+  &:hover {
+    transform: translateY(calc(-1 * var(--pricing-transform-cards)));
+  }
+} 
+
+.pricing:hover .card:first-child {
   transform: translateX(-105%) rotate(-8deg) translateY(60px);
+
+  &:hover {
+    transform: translateX(-105%) rotate(-8deg) translateY(calc(60px - var(--pricing-transform-cards)));
+  }
 }
 
-.pricing .card:last-child {
+.pricing:hover .card:last-child {
   transform: translateX(105%) rotate(8deg) translateY(60px);
+
+  &:hover {
+    transform: translateX(105%) rotate(8deg) translateY(calc(60px - var(--pricing-transform-cards)));
+  }
 }
 
 footer {
